@@ -8,6 +8,7 @@ void setup()
 {
 
   pinMode(ledPin, OUTPUT);
+  Serial.begin (9600);
 }
 
 
@@ -17,9 +18,11 @@ void loop()
   lightLevel = analogRead(sensorPin);
 
 
-  manualTune();  // manually change the range from light to dark
+  manualTune();
 
-  //autoTune();  // have the Arduino do the work for us!
+  //autoTune();
+
+  //PruebaMap();
 
   analogWrite(ledPin, lightLevel);
 
@@ -30,9 +33,11 @@ void manualTune()
 {
 
   lightLevel = map(lightLevel, 0, 1023, 0, 255);
-  lightLevel = constrain(lightLevel, 0, 255);
+  //lightLevel = constrain(lightLevel, 0, 255);
 
-
+  Serial.println(lightLevel);
+  delay (100);
+  
 }
 
 
@@ -54,5 +59,20 @@ void autoTune()
   lightLevel = constrain(lightLevel, 0, 0);
 
 }
+
+void PruebaMap()
+{
+
+  int valor = 0;
+  int potPin = 0;
+
+  valor = analogRead(potPin);
+  valor = map (valor, 0, 1023, 100, 500);
+
+  Serial.println(valor);
+  delay (1000);
+
+} //fin PruebaMap();
+
 
 
