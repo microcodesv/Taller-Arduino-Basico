@@ -1,6 +1,5 @@
 const int temperaturePin = 0;
 
-
 void setup()
 {
   Serial.begin(9600);
@@ -22,7 +21,8 @@ void loop()
   Serial.print("  deg C: ");
   Serial.print(degreesC);
   Serial.print("  deg F: ");
-  Serial.println(degreesF);
+  Serial.print(degreesF);
+  Serial.println(" ");
 
   delay(1000); 
 }

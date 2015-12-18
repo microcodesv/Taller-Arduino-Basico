@@ -1,8 +1,10 @@
 int ledPins[] = {2,3,4,5,6,7,8,9};
+//int ledPins[] = {0,1,2,3,4,5,6,7};
 
 void setup()
 {
-  int index;
+  
+int index;
   for(index = 0; index <= 7; index++)
   {
     pinMode(ledPins[index],OUTPUT);
@@ -12,9 +14,9 @@ void setup()
 
 void loop()
 {
-  oneAfterAnotherNoLoop();  
+  //oneAfterAnotherNoLoop();  
   
-  //oneAfterAnotherLoop();  
+  oneAfterAnotherLoop();  
   
   //oneOnAtATime();       
   
@@ -27,7 +29,7 @@ void loop()
 
 void oneAfterAnotherNoLoop()
 {
-  int delayTime = 100; 
+  int delayTime = 1000; 
   
   // Todos los led encendidos:
 
@@ -72,6 +74,7 @@ void oneAfterAnotherLoop()
 {
   int index;
   int delayTime = 100; 
+ 
   for(index = 0; index <= 7; index++)
   {
     digitalWrite(ledPins[index], HIGH);

@@ -1,37 +1,35 @@
-const int button1Pin = 2;  
-const int button2Pin = 3;  
-const int ledPin =  13;    
+const int button1Pin = 2;
+const int button2Pin = 3;
+const int ledPin =  13;
 
 
 void setup()
 {
- 
   pinMode(button1Pin, INPUT);
   pinMode(button2Pin, INPUT);
 
-  
-  pinMode(ledPin, OUTPUT);      
+  pinMode(ledPin, OUTPUT);
 }
 
 
 void loop()
 {
-  int button1State, button2State; 
+  int button1State, button2State;
 
   button1State = digitalRead(button1Pin);
   button2State = digitalRead(button2Pin);
 
-  
-  if (((button1State == LOW) || (button2State == LOW))  
-      && !                                               
-      ((button1State == LOW) && (button2State == LOW))) 
-                                                        
+
+  if (((button1State == LOW) || (button2State == LOW))
+      && !
+      ((button1State == LOW) && (button2State == LOW)))
+
   {
-    digitalWrite(ledPin, HIGH);  // turn the LED on
+    digitalWrite(ledPin, HIGH);  // turn the LED on 
   }
   else
   {
     digitalWrite(ledPin, LOW);  // turn the LED off
   }
- 
+
 }

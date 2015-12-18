@@ -15,8 +15,9 @@ void setup()
 
 void loop()
 {
-  menuColores();
+  //menuColores();
   espectroCompleto();
+
 }
 
 void menuColores()
@@ -89,7 +90,7 @@ void menuColores()
 void espectroCompleto()
 {
   int x; 
-  for (x = 0; x < 768; x++)
+  for (x = 0; x < 768; x++) 
   {
     verRGB(x); 
     delay(10); 
@@ -97,15 +98,16 @@ void espectroCompleto()
 }
 
 
-void verRGB(int color)
+void verRGB (int color)
 {
+
   int IntesidadRojo;
   int IntesidadVerde;
   int IntesidadaAzul;
 
   if (color <= 255)          // zona 1
   {
-    IntesidadRojo = 255 - color;    
+    IntesidadRojo = 255 - color;  
     IntesidadVerde = color;        
     IntesidadaAzul = 0;             
   }
@@ -115,7 +117,7 @@ void verRGB(int color)
     IntesidadVerde = 255 - (color - 256); 
     IntesidadaAzul = (color - 256);        
   }
-  else // color >= 512       // zona 3
+  //else  (color >= 512)     // zona 3
   {
     IntesidadRojo = (color - 512);        
     IntesidadVerde = 0;                   
