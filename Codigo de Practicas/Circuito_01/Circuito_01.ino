@@ -1,14 +1,11 @@
-void setup()
-{
-  pinMode(13, OUTPUT);      //Declaracion de pin
+void setup() {
+  pinMode(13, OUTPUT);      //Se coloca el pin como salida
 }
 
-void loop()
-{
-  digitalWrite(13, HIGH);   // Turno de LED encendido
-  delay(1000);              // Esperar un segundo
-  
-  digitalWrite(13, LOW);    // Turno de LED apagado
-  delay(1000);              // Esperar un segundo
-}
+void loop() {
+  digitalWrite(13, HIGH);   //Enciende el LED
+  delay(1000);              //Espera un segundo
 
+  digitalWrite(13, LOW);    //Apaga el LED
+  delay(1000);              //Espera un segundo
+}
