@@ -17,11 +17,11 @@ void loop()
 
 flexposition = analogRead(flexpin);
   
-  servoposition = map(flexposition, 600, 900, 0, 180);
-  servoposition = constrain(servoposition, 0, 180);
+  servoposition = map(flexposition, 600, 900, 20, 160);
+  servoposition = constrain(servoposition, 20, 160);
 
   servo1.write(servoposition);
-  
+
   Serial.print("sensor: ");
   Serial.print(flexposition);
   Serial.print("  servo: ");
