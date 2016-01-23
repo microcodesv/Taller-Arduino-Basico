@@ -1,62 +1,41 @@
 const int sensorPin = 0;
-const int ledPin = 2;
-
-int lightLevel, high = 215, low = 130;
-
+const int ledPin = 9;
+int lightLevel, high = 0, low = 1023;
 
 void setup()
 {
-
   pinMode(ledPin, OUTPUT);
-  Serial.begin (9600);
 }
-
 
 void loop()
 {
-
   lightLevel = analogRead(sensorPin);
 
+  manualTune();
 
-  //manualTune();
-
-  autoTune();
+  //autoTune();
 
   analogWrite(ledPin, lightLevel);
-
 }
-
 
 void manualTune()
 {
-
   lightLevel = map(lightLevel, 0, 1023, 0, 255);
   lightLevel = constrain(lightLevel, 0, 255);
-
-  Serial.println(lightLevel);
-  delay (100);
-  
 }
-
 
 void autoTune()
 {
+  if (lightLevel < low)
+  {
+    low = lightLevel;
+  }
 
-  lightLevel = map(lightLevel, 0, 1023, 0, 255);
+  if (lightLevel > high)
+  {
+    high = lightLevel;
+  }
+
+  lightLevel = map(lightLevel, low + 30, high - 30, 0, 255);
   lightLevel = constrain(lightLevel, 0, 255);
-
-if (lightLevel >= 130);
-{
- pinMode(ledPin,HIGH);
 }
-else
-{
-  pinMode(ledPin, LOW);
-} 
-
-}
-
-
-
-
-
