@@ -1,124 +1,42 @@
 //Los siguientes pines se manejan como constantes. La ventaja
 //de las constantes es que sus valores no se pueden modificar
-//accidentalmente
-const int pinRojo = 9;
-const int pinVerde = 10;
-const int pinAzul = 11;
+//accidentalmente.
+const int pinBoton1 = 2;
+const int pinBoton2 = 3;
+const int pinLed =  13;
 
 void setup() {
-  //Todos los pines del LED RGB se colocan como salidas
-  pinMode(pinRojo, OUTPUT);
-  pinMode(pinVerde, OUTPUT);
-  pinMode(pinAzul, OUTPUT);
+  //Los pines de los botones se configuran como entradas
+  pinMode(pinBoton1, INPUT);
+  pinMode(pinBoton2, INPUT);
+
+  //El pin del LED se configura como salida
+  pinMode(pinLed, OUTPUT);
 }
 
 void loop() {
-  //Un truco muy util para desactivar lineas de codigo sin
-  //tener que borralas es comentarlas. Asi el compilador las
-  //ignora y podemos conservarlas como referencia.
+  //Estas variables guardan el estado de cada boton
+  int estadoBoton1, estadoBoton2;
 
-  //Pueden comentarse y descomentarse las siguientes funciones
-  //para ver lo que hacen:
-  menuColores();
-  //espectroCompleto();
-}
+  //Se lee el estado de cada boton y se guardan en las variables
+  estadoBoton1 = digitalRead(pinBoton1);
+  estadoBoton2 = digitalRead(pinBoton2);
 
-//La siguiente funcion muestra colores de uno en uno
-void menuColores() {
-
-  //Apagado (Apagar todos los LEDS):
-  digitalWrite(pinRojo, LOW);
-  digitalWrite(pinVerde, LOW);
-  digitalWrite(pinAzul, LOW);
-  delay(1000);
-
-  //Rojo (Ajuste de leds para visualizar solo el rojo):
-  digitalWrite(pinRojo, HIGH);
-  digitalWrite(pinVerde, LOW);
-  digitalWrite(pinAzul, LOW);
-  delay(1000);
-
-  //Verde (Ajuste de leds para visualizar solo el verde):
-  digitalWrite(pinRojo, LOW);
-  digitalWrite(pinVerde, HIGH);
-  digitalWrite(pinAzul, LOW);
-  delay(1000);
-
-  //Azul (Ajuste de leds para visualizar solo el azul):
-  digitalWrite(pinRojo, LOW);
-  digitalWrite(pinVerde, LOW);
-  digitalWrite(pinAzul, HIGH);
-  delay(1000);
-
-  //Amarillo (Para lograr visualizar amarillo combinamos rojo y verde):
-  digitalWrite(pinRojo, HIGH);
-  digitalWrite(pinVerde, HIGH);
-  digitalWrite(pinAzul, LOW);
-  delay(1000);
-
-  //Cyan (Para lograr visualizar cyan combinamos Verde y Azul):
-  digitalWrite(pinRojo, LOW);
-  digitalWrite(pinVerde, HIGH);
-  digitalWrite(pinAzul, HIGH);
-  delay(1000);
-
-  //Morado (Para lograr visualizar morado combinamos Rojo y Azul):
-  digitalWrite(pinRojo, HIGH);
-  digitalWrite(pinVerde, LOW);
-  digitalWrite(pinAzul, HIGH);
-  delay(1000);
-
-  //Blanco (Para lograr visualizar blanco combinamos rojo, azul y verde):
-  digitalWrite(pinRojo, HIGH);
-  digitalWrite(pinVerde, HIGH);
-  digitalWrite(pinAzul, HIGH);
-  delay(1000);
-}
-
-void espectroCompleto() {
-  //Esta variable es usada para llevar la cuenta de repeticiones
-  int x;
-
-  //El lazo for permite repetir el mismo codigo en muchas
-  //ocasiones sin tener que repetir las lineas. El siguiente lazo
-  //muestra todos los colores del arcoiris en el LED RGB
-  for (x = 0; x < 768; x++) {
-    verRGB(x);
-    delay(10);
+  //A continuacion se verifican las condiciones necesarias para
+  //encender el LED si y solo si se presiona exactamente un
+  //boton a la vez. Esto se conoce como operacion OR exclusiva
+  //(abreviado XOR).
+  //  a xor b = (a or b) and not (a and b)
+  //Que significa "presionar el boton a o b, pero no ambos a
+  //la vez". Recuerdese que los botones se conectan a tierra,
+  //asi que se consideran activos si estan en nivel BAJO.
+  if (((estadoBoton1 == LOW) || (estadoBoton2 == LOW))
+      && !
+      ((estadoBoton1 == LOW) && (estadoBoton2 == LOW)))
+  {
+    digitalWrite(pinLed, HIGH);  //Enciende el LED
   }
-}
-
-void verRGB (int color) {
-  //Las siguientes variables sirven para guardar los valores calculados
-  //de cada componente de color
-  int IntesidadRojo;
-  int IntesidadVerde;
-  int IntesidadaAzul;
-
-  //Los siguientes if calculan las componentes de color dependiendo de la
-  //zona donde se encuentra el color buscado
-  if (color <= 255) {
-    //Zona 1
-    IntesidadRojo = 255 - color;          //Rojo disminuye
-    IntesidadVerde = color;               //Verde aumenta
-    IntesidadaAzul = 0;                   //Azul se mantiene
+  else {
+    digitalWrite(pinLed, LOW);   //Apaga el LED
   }
-  else if (color <= 511) {
-    //Zona 2
-    IntesidadRojo = 0;                    //Rojo se mantiene
-    IntesidadVerde = 255 - (color - 256); //Verde disminuye
-    IntesidadaAzul = (color - 256);       //Azul aumenta
-  }
-  else { //(color >= 512)
-    //Zona 3
-    IntesidadRojo = (color - 512);        //Rojo aumenta
-    IntesidadVerde = 0;                   //Verde se mantiene
-    IntesidadaAzul = 255 - (color - 512); //Azul disminuye
-  }
-
-  //Una vez calculadas las componentes de color, se usa PWM
-  //para visualizarlas en el LED RGB
-  analogWrite(pinRojo, IntesidadRojo);
-  analogWrite(pinAzul, IntesidadaAzul);
-  analogWrite(pinVerde, IntesidadVerde);
 }
