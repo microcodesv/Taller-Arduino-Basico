@@ -3,6 +3,11 @@ const int pinRojo = 9;
 const int pinVerde = 10;
 const int pinAzul = 11;
 
+//Pines de los potenciometros
+const int potRojo = A0;
+const int potVerde = A1;
+const int potAzul = A2;
+
 void setup() {
   //Todos los pines del LED RGB se colocan como salidas
   pinMode(pinRojo, OUTPUT);
@@ -13,12 +18,12 @@ void setup() {
 void loop() {
   //Pueden comentarse y descomentarse las siguientes funciones
   //para ver lo que hacen:
-  menuColores();
-  //espectroCompleto();
+  //secuenciaColores();
+  mezclaRGB();
 }
 
 //La siguiente funcion muestra colores de uno en uno
-void menuColores() {
+void secuenciaColores() {
 
   //Apagado (Apagar todos los LEDS):
   digitalWrite(pinRojo, LOW);
@@ -69,50 +74,24 @@ void menuColores() {
   delay(1000);
 }
 
-void espectroCompleto() {
-  //Esta variable es usada para llevar la cuenta de
-  //iteraciones (repeticiones del lazo)
-  int x;
+//Esta funcion permite mezclar el color que uno desee a travez
+//de los potenciometros
+void mezclaRGB() {
+  //Variables con los valores de cada componente de color
+  int intensidadRojo;
+  int intensidadVerde;
+  int intensidadAzul;
 
-  //El siguiente lazo muestra todos los colores del arcoiris
-  //en el LED RGB
-  for (x = 0; x < 768; x++) {
-    verRGB(x);
-    delay(10);
-  }
-}
+  //Se leen las intensidades de las componentes de color desde
+  //los canales de ADC. Como el ADC da un rango de 0 - 1023, se
+  //divide entre 4 para reducirlo al rango 0 - 255.
+  intensidadRojo = analogRead(potRojo) / 4;
+  intensidadVerde = analogRead(potVerde) / 4;
+  intensidadAzul = analogRead(potAzul) / 4;
 
-void verRGB (int color) {
-  //Las siguientes variables sirven para guardar los valores
-  //calculados de cada componente de color
-  int IntesidadRojo;
-  int IntesidadVerde;
-  int IntesidadaAzul;
-
-  //Los siguientes if calculan las componentes de color
-  //dependiendo de la zona donde se encuentra el color buscado.
-  if (color <= 255) {
-    //Zona 1
-    IntesidadRojo = 255 - color;          //Rojo disminuye
-    IntesidadVerde = color;               //Verde aumenta
-    IntesidadaAzul = 0;                   //Azul se mantiene
-  }
-  else if (color <= 511) {
-    //Zona 2
-    IntesidadRojo = 0;                    //Rojo se mantiene
-    IntesidadVerde = 255 - (color - 256); //Verde disminuye
-    IntesidadaAzul = (color - 256);       //Azul aumenta
-  }
-  else { //(color >= 512)
-    //Zona 3
-    IntesidadRojo = (color - 512);        //Rojo aumenta
-    IntesidadVerde = 0;                   //Verde se mantiene
-    IntesidadaAzul = 255 - (color - 512); //Azul disminuye
-  }
-
-  //Una vez calculadas las componentes de color, se usa PWM
-  //para visualizarlas en el LED RGB
-  analogWrite(pinRojo, IntesidadRojo);
-  analogWrite(pinAzul, IntesidadaAzul);
-  analogWrite(pinVerde, IntesidadVerde);
+  //Finalmente se usa PWM para visualizar las componentes de
+  //color en el LED RGB
+  analogWrite(pinRojo, intensidadRojo);
+  analogWrite(pinAzul, intensidadAzul);
+  analogWrite(pinVerde, intensidadVerde);
 }
