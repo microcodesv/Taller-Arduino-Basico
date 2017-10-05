@@ -1,3 +1,14 @@
+/*
+  CIRCUITO 10 - Resistencia Suave.
+  Para armar este circuito necesitaras:
+  -1 Tarjeta Arduino
+  -1 Breadboard
+  -1 cable USB
+  -8 cable de prototipados
+  -1 sensor suave o tactil
+  -1 LED RGB
+  -3 resistencias 330 Ohms
+ */
 //Se definen los pines conectados al led RGB
 const int pinLedRojo = 9;
 const int pinLedVerde = 10;
@@ -68,3 +79,11 @@ void establecerColor(int posicionRGB) {
   analogWrite(pinLedVerde, valorVerde);
   analogWrite(pinLedAzul, valorAzul);
 }
+/*
+   Código realizado por Joksan Alvarado en colaboración con
+   Karla Hernandez para el proyecto de educación en tecnologias
+   Microcode impartido desde el LabCT, en El Salvador.
+
+   Este material se encuentra bajo licencia Creative Commons 4.0
+   CC-BY-SA
+*/

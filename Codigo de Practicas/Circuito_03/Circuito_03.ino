@@ -1,3 +1,18 @@
+/*
+  CIRCUITO 03 - Compuertas lógicas con botones.
+  Para armar este circuito necesitaras:
+  -1 Tarjeta Arduino
+  -1 Breadboard
+  -1 cable USB
+  -3 cable de prototipados
+  -1 LED
+  -2 botones
+  -1 resistencia de 330 Ohms
+  -2 resistencia de 1k Ohms
+
+  Aca vamos acerca de las compuertas logicas y comparadores por
+  medio de la implementación de botones.
+*/
 //Los siguientes pines se manejan como constantes. La ventaja
 //de las constantes es que sus valores no se pueden modificar
 //accidentalmente.
@@ -40,3 +55,11 @@ void loop() {
     digitalWrite(pinLed, LOW);   //Apaga el LED
   }
 }
+/*
+   Código realizado por Joksan Alvarado en colaboración con
+   Karla Hernandez para el proyecto de educación en tecnologias
+   Microcode impartido desde el LabCT, en El Salvador.
+
+   Este material se encuentra bajo licencia Creative Commons 4.0
+   CC-BY-SA
+*/

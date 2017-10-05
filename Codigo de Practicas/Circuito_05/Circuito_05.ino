@@ -1,3 +1,14 @@
+/*
+  CIRCUITO 05 - Compuertas lógicas con botones.
+  Para armar este circuito necesitaras:
+  -1 Tarjeta Arduino
+  -1 Breadboard
+  -1 cable USB
+  -15 cable de prototipados
+  -1 LED RGB
+  -3 resistencia de 330 Ohms
+  -3 potenciometros 1k Ohms
+*/
 //Pines del LED RGB
 const int pinRojo = 9;
 const int pinVerde = 10;
@@ -95,3 +106,11 @@ void mezclaRGB() {
   analogWrite(pinAzul, intensidadAzul);
   analogWrite(pinVerde, intensidadVerde);
 }
+/*
+   Código realizado por Joksan Alvarado en colaboración con
+   Karla Hernandez para el proyecto de educación en tecnologias
+   Microcode impartido desde el LabCT, en El Salvador.
+
+   Este material se encuentra bajo licencia Creative Commons 4.0
+   CC-BY-SA
+*/

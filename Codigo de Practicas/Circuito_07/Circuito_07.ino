@@ -1,3 +1,12 @@
+/*
+  CIRCUITO 07 - Sensor de Temperatura.
+  Para armar este circuito necesitaras:
+  -1 Tarjeta Arduino
+  -1 Breadboard
+  -1 cable USB
+  -5 cable de prototipados
+  -1 sensor de temperatura TMP36
+ */
 //El sensor de temperatura se conecta al pin analogo 0
 const int pinTemperatura = 0;
 
@@ -54,3 +63,11 @@ float leerVoltaje(int pin) {
   //  voltaje = 0.0048875855 * lectura
   return (analogRead(pin) * 0.0048875855);
 }
+/*
+   Código realizado por Joksan Alvarado en colaboración con
+   Karla Hernandez para el proyecto de educación en tecnologias
+   Microcode impartido desde el LabCT, en El Salvador.
+
+   Este material se encuentra bajo licencia Creative Commons 4.0
+   CC-BY-SA
+*/

@@ -1,3 +1,12 @@
+/*
+  CIRCUITO 08 - Servomotor.
+  Para armar este circuito necesitaras:
+  -1 Tarjeta Arduino
+  -1 Breadboard
+  -1 cable USB
+  -3 cable de prototipados
+  -1 micro servomotor
+ */
 #include <Servo.h>
 
 //Las librerias como Servo.h funcionan a traves de clases, de
@@ -122,3 +131,11 @@ void anguloSerie() {
     servo1.write(angulo);
   }
 }
+/*
+   Código realizado por Joksan Alvarado en colaboración con
+   Karla Hernandez para el proyecto de educación en tecnologias
+   Microcode impartido desde el LabCT, en El Salvador.
+
+   Este material se encuentra bajo licencia Creative Commons 4.0
+   CC-BY-SA
+*/

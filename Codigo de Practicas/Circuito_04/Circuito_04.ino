@@ -1,3 +1,13 @@
+/*
+  CIRCUITO 04 - Arreglo de LEDES.
+  Para armar este circuito necesitaras:
+  -1 Tarjeta Arduino
+  -1 Breadboard
+  -1 cable USB
+  -10 cable de prototipados
+  -8 LED
+  -8 resistencia de 330 Ohms
+*/
 //Los arreglos permiten guardar simultaneamente varios datos a
 //la vez bajo un solo nombre de variable. En este caso se
 //guardan todos los numeros de los pines conectados a los LEDs.
@@ -173,3 +183,11 @@ void ledAlAzar() {
   delay(tiempoRetardo);
   digitalWrite(pinLed[numeroLed], LOW);
 }
+/*
+   Código realizado por Joksan Alvarado en colaboración con
+   Karla Hernandez para el proyecto de educación en tecnologias
+   Microcode impartido desde el LabCT, en El Salvador.
+
+   Este material se encuentra bajo licencia Creative Commons 4.0
+   CC-BY-SA
+*/

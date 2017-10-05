@@ -1,3 +1,14 @@
+/*
+  CIRCUITO 06 - Fotoresistencias.
+  Para armar este circuito necesitaras:
+  -1 Tarjeta Arduino
+  -1 Breadboard
+  -1 cable USB
+  -5 cable de prototipados
+  -1 fotoresistencias de 1K Ohms
+  -1 resistencia de 330 Ohms
+  -1 LED
+ */
 //Pines usados para el sensor de luz y el LED
 const int pinSensor = 0;
 const int pinLed = 9;
@@ -66,3 +77,11 @@ void ajusteAutomatico() {
   //Finalmente se hace un recorte
   nivelLuz = constrain(nivelLuz, 0, 255);
 }
+/*
+   Código realizado por Joksan Alvarado en colaboración con
+   Karla Hernandez para el proyecto de educación en tecnologias
+   Microcode impartido desde el LabCT, en El Salvador.
+
+   Este material se encuentra bajo licencia Creative Commons 4.0
+   CC-BY-SA
+*/
