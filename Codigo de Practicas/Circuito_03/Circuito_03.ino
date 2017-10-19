@@ -4,7 +4,7 @@
   -1 Tarjeta Arduino
   -1 Breadboard
   -1 cable USB
-  -3 cable de prototipados
+  -4 cables de prototipados
   -1 LED
   -2 botones
   -1 resistencia de 330 Ohms
@@ -61,5 +61,5 @@ void loop() {
    Microcode impartido desde el LabCT, en El Salvador.
 
    Este material se encuentra bajo licencia Creative Commons 4.0
-   CC-BY-SA
+   CC-BY-SA y GNU General public license 3.0
 */

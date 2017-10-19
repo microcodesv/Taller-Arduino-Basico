@@ -4,7 +4,7 @@
   -1 Tarjeta Arduino
   -1 Breadboard
   -1 cable USB
-  -16 cable de prototipados
+  -17 cable de prototipados
   -1 pantalla LCD 16x2
   -1 potenciometro 1K Ohms
  */
@@ -136,5 +136,5 @@ void autoScroll() {
    Microcode impartido desde el LabCT, en El Salvador.
 
    Este material se encuentra bajo licencia Creative Commons 4.0
-   CC-BY-SA
+   CC-BY-SA y GNU General public license 3.0
 */

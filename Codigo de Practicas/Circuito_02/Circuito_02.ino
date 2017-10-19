@@ -3,10 +3,10 @@
   Para armar este circuito necesitaras:
   -1 Tarjeta Arduino
   -1 Breadboard
-  -1 resistencia de 330 Ohms
   -1 cable USB
-  -4 cable de prototipados
+  -6 cable de prototipados
   -1 LED
+  -1 resistencia de 330 Ohms
   -1 Potenciometro de 1K Ohms
 */
 //En la variable llamada "Potenciometro" se guarda el numero de pin
@@ -42,5 +42,5 @@ void loop() {
    Microcode impartido desde el LabCT, en El Salvador.
 
    Este material se encuentra bajo licencia Creative Commons 4.0
-   CC-BY-SA
+   CC-BY-SA y GNU General public license 3.0
 */

@@ -1,12 +1,12 @@
 /*
-  CIRCUITO 08 - Servomotor.
+  CIRCUITO 08 - Haciendo uso de un servomotor.
   Para armar este circuito necesitaras:
   -1 Tarjeta Arduino
   -1 Breadboard
   -1 cable USB
   -3 cable de prototipados
   -1 micro servomotor
- */
+*/
 #include <Servo.h>
 
 //Las librerias como Servo.h funcionan a traves de clases, de
@@ -123,8 +123,8 @@ void anguloSerie() {
     angulo = constrain(angulo, 20, 160);
 
     //Confirma el angulo ingresado al usuario
-    Serial.print("angulo: ");
-    Serial.print(angulo);
+    Serial.print  ("angulo: ");
+    Serial.print  (angulo);
     Serial.println(" grados");
 
     //Finalmente establece la posicion del servo
@@ -137,5 +137,5 @@ void anguloSerie() {
    Microcode impartido desde el LabCT, en El Salvador.
 
    Este material se encuentra bajo licencia Creative Commons 4.0
-   CC-BY-SA
+   CC-BY-SA y GNU General public license 3.0
 */

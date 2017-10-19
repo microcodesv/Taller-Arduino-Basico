@@ -1,5 +1,5 @@
 /*
-  CIRCUITO 04 - Arreglo de LEDES.
+  CIRCUITO 04 - Arreglo de ledes.
   Para armar este circuito necesitaras:
   -1 Tarjeta Arduino
   -1 Breadboard
@@ -189,5 +189,5 @@ void ledAlAzar() {
    Microcode impartido desde el LabCT, en El Salvador.
 
    Este material se encuentra bajo licencia Creative Commons 4.0
-   CC-BY-SA
+   CC-BY-SA y GNU General public license 3.0
 */

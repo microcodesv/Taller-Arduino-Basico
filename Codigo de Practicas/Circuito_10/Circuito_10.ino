@@ -10,9 +10,9 @@
   -3 resistencias 330 Ohms
  */
 //Se definen los pines conectados al led RGB
-const int pinLedRojo = 9;
-const int pinLedVerde = 10;
-const int pinLedAzul = 11;
+const int pinLedRojo  = 2;
+const int pinLedVerde = 3;
+const int pinLedAzul  = 4;
 
 //Tambien se define el pin conectado al potenciometro suave
 const int pinSensor = 0;
@@ -63,21 +63,21 @@ void establecerColor(int posicionRGB) {
   //tercio es de ascenso, el segundo es de descenso y el tercero
   //es de apagado.
   valorVerde =
-    constrain(map(posicionRGB, 0, 341, 0, 255), 0, 255)
+      constrain(map(posicionRGB, 0, 341, 0, 255),   0, 255)
     - constrain(map(posicionRGB, 341, 682, 0, 255), 0, 255);
 
   //En el azul se usa el mismo metodo que el verde. El primer
   //tercio es apagado, el segundo es de ascenso y el tercero
   //es de descenso.
   valorAzul =
-    constrain(map(posicionRGB, 341, 682, 0, 255), 0, 255)
+      constrain(map(posicionRGB, 341, 682, 0, 255),  0, 255)
     - constrain(map(posicionRGB, 682, 1023, 0, 255), 0, 255);
 
   //Con los valores de las 3 componentes de color calculadas,
   //se envian las intensidades al led RGB mediante PWM.
-  analogWrite(pinLedRojo, valorRojo);
+  analogWrite(pinLedRojo,  valorRojo);
   analogWrite(pinLedVerde, valorVerde);
-  analogWrite(pinLedAzul, valorAzul);
+  analogWrite(pinLedAzul,  valorAzul);
 }
 /*
    Código realizado por Joksan Alvarado en colaboración con
@@ -85,5 +85,5 @@ void establecerColor(int posicionRGB) {
    Microcode impartido desde el LabCT, en El Salvador.
 
    Este material se encuentra bajo licencia Creative Commons 4.0
-   CC-BY-SA
+   CC-BY-SA y GNU General public license 3.0
 */

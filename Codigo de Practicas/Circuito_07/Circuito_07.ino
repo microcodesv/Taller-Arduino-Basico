@@ -1,14 +1,22 @@
 /*
-  CIRCUITO 07 - Sensor de Temperatura.
+  CIRCUITO 07 - Sensor de temperatura y humedad.
   Para armar este circuito necesitaras:
   -1 Tarjeta Arduino
   -1 Breadboard
   -1 cable USB
   -5 cable de prototipados
-  -1 sensor de temperatura TMP36
- */
-//El sensor de temperatura se conecta al pin analogo 0
-const int pinTemperatura = 0;
+  -1 sensor de temperatura DHT22
+  -1 resistencia de 1KOhms
+*/
+//cargamos la librería DHT
+#include <DHT.h>
+//Seleccionamos el pin en el que se conectará el sensor
+#define  DHTPIN 2
+//Se selecciona el DHT22(existen otros DHT)
+#define  DHTTYPE DHT22
+//Se inicia una variable que será usada por
+//Arduino para comunicarse con el sensor
+DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
   //El puerto serie permite intercambiar informacion con la
@@ -18,50 +26,18 @@ void setup() {
   //para ello se usa el metodo begin y se indica la velocidad
   //de comunicacion.
   Serial.begin(9600);
+  dht.begin(); //Es necesario inicializar el sensor DHT
 }
 
 void loop() {
-  //Las siguientes variables son usadas para leer y calcular
-  //la temperatura
-  float voltaje, gradosC, gradosF;
-
-  //Primero se lee el voltaje que envia el sensor de
-  //temperatura.
-  voltaje = leerVoltaje(pinTemperatura);
-
-  //Luego este voltaje se convierte a temperatura en grados
-  //celsius aplicando la formula del conversion
-  gradosC = (voltaje - 0.5) * 100.0;
-
-  //Despues la temperatura se convierte de Farenheit a Celsius
-  gradosF = gradosC * (9.0 / 5.0) + 32.0;
-
-  //Finalmente se envian estos datos por el puerto serie. El
-  //metodo "print" envia el mensaje pero no envia el fin de
-  //linea, mientras que el metodo "println" si lo envia.
-  Serial.print("voltage: ");
-  Serial.print(voltaje);
-  Serial.print("  deg C: ");
-  Serial.print(gradosC);
-  Serial.print("  deg F: ");
-  Serial.print(gradosF);
-  Serial.println(" ");
-
-  //Se espera 1 segundo antes de repetir
-  delay(1000);
-}
-
-float leerVoltaje(int pin) {
-  //Esta funcion convierte la lectura del ADC a voltaje
-  //aplicando una regla de 3.
-  //  voltaje   lectura
-  //  ------- = -------
-  //    5V       1023
-  //             5V
-  //  voltaje = ---- * lectura
-  //            1023
-  //  voltaje = 0.0048875855 * lectura
-  return (analogRead(pin) * 0.0048875855);
+  float h = dht.readHumidity(); //Se lee la humedad
+  float t = dht.readTemperature(); //Se lee la temperatura
+  //Se imprimen las variables
+  Serial.println("Humedad: ");
+  Serial.println(h);
+  Serial.println("Temperatura: ");
+  Serial.println(t);
+  delay(2000); //Se espera 2 segundos para seguir leyendo datos
 }
 /*
    Código realizado por Joksan Alvarado en colaboración con
@@ -69,5 +45,5 @@ float leerVoltaje(int pin) {
    Microcode impartido desde el LabCT, en El Salvador.
 
    Este material se encuentra bajo licencia Creative Commons 4.0
-   CC-BY-SA
+   CC-BY-SA y GNU General public license 3.0
 */

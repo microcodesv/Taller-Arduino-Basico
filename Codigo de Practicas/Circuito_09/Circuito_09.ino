@@ -1,5 +1,5 @@
 /*
-  CIRCUITO 09 - Servomotor.
+  CIRCUITO 09 - Implementando un sensor flexible.
   Para armar este circuito necesitaras:
   -1 Tarjeta Arduino
   -1 Breadboard
@@ -58,5 +58,5 @@ void loop()
    Microcode impartido desde el LabCT, en El Salvador.
 
    Este material se encuentra bajo licencia Creative Commons 4.0
-   CC-BY-SA
+   CC-BY-SA y GNU General public license 3.0
 */

@@ -1,5 +1,5 @@
 /*
-  CIRCUITO 06 - Fotoresistencias.
+  CIRCUITO 06 - Resistencias sensibles a la luz.
   Para armar este circuito necesitaras:
   -1 Tarjeta Arduino
   -1 Breadboard
@@ -11,7 +11,7 @@
  */
 //Pines usados para el sensor de luz y el LED
 const int pinSensor = 0;
-const int pinLed = 9;
+const int pinLed    = 9;
 
 //Variables usadas para llevar control de la intensidad de luz
 //y los valores maximo y minimo de luz registrados. Notese que
@@ -83,5 +83,5 @@ void ajusteAutomatico() {
    Microcode impartido desde el LabCT, en El Salvador.
 
    Este material se encuentra bajo licencia Creative Commons 4.0
-   CC-BY-SA
+   CC-BY-SA y GNU General public license 3.0
 */
