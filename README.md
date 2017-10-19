@@ -20,6 +20,7 @@ En este repositorio encontras el código y guía que utilizamos para impartir la
 = CIRCUITO 09 - Implementando un sensor flexible.
 
 ### Licencia
-Todo el material contenido en este repositorio esta respaldado por la [Licencia Creative Commons Internacional 4.0 CC-BY-SA]
+Todo el material contenido en este repositorio esta respaldado por la [Licencia Creative Commons Internacional 4.0 CC-BY-SA] y [GNU General Public License 3.0]
 
 [Licencia Creative Commons Internacional 4.0 CC-BY-SA]: <https://creativecommons.org/licenses/by-sa/4.0/>
+[GNU General Public License 3.0]:<https://www.gnu.org/licenses/gpl-3.0.txt>
