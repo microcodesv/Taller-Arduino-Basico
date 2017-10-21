@@ -9,7 +9,7 @@
   -1 resistencia de 1KOhms
 */
 //cargamos la librería DHT
-#include <DHT.h>
+#include "DHT.h"
 //Seleccionamos el pin en el que se conectará el sensor
 #define  DHTPIN 2
 //Se selecciona el DHT22(existen otros DHT)
